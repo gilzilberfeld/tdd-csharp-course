@@ -72,7 +72,9 @@
     <Compile Include="CalculatorDisplay\CalculatorDisplaysTests.cs" />
     <Compile Include="Factorial\FactorialTests.cs" />
     <Compile Include="LEDDriver\LEDDriverTests.cs" />
-    <Compile Include="LEDDriver\SchedulerTests.cs" />
+    <Compile Include="LEDDriver\SchedulerTests_Manual.cs" />
+    <Compile Include="LEDDriver\SchedulerTests_Moq.cs" />
+    <Compile Include="LEDDriver\TimeServiceMock.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

@@ -5,7 +5,7 @@ using Moq;
 namespace TDD_CSharp
 {
     [TestClass]
-    public class SchedulerTests
+    public class SchedulerTests_Moq
     {
         Mock<ITimeService> mockTimeService;
         LEDDriver driver;
