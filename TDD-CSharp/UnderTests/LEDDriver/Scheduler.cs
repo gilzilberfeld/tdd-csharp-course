@@ -3,9 +3,9 @@
     public class Scheduler
     {
         LEDDriver driver;
-        TimeService timeService;
+        ITimeService timeService;
 
-        public Scheduler(TimeService timeService, LEDDriver driver )
+        public Scheduler(ITimeService timeService, LEDDriver driver )
         {
             this.timeService = timeService;
             timeService.Init();
@@ -13,7 +13,7 @@
             driver.InitializeLEDs();
         }
 
-        void TurnLEDSonOnTime()
+        public void TurnLEDSonOnTime()
         {
             if (ItsTime())
             {

@@ -1,39 +1,46 @@
-﻿using System;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+using UnderTests;
+using Moq;
 
 namespace TDD_CSharp
 {
     [TestClass]
     public class SchedulerTests
     {
+        Mock<ITimeService> mockTimeService;
+        LEDDriver driver;
+        Scheduler scheduler;
+
         [TestInitialize]
         public void Setup()
         {
-            //RESET_FAKE(getCurrentYearFromService);
-        }
-
-        [TestMethod]
-        public void WhenYearIs2000_LightsAreOn()
-        {
-            /*            getCurrentYearFromService_fake.return_val = 2000;
-
-                        schedulerInit();
-                        schedulerTurnLEDSonOnTime();
-                        Assert.AreEqual(driverAreAllLEDsOn());
-             */
+            mockTimeService = new Mock<ITimeService>();
+            driver = new LEDDriver();
+            scheduler = new Scheduler(mockTimeService.Object, driver);
         }
 
         [TestMethod]
         public void WhenYearIs2018_LightsAreOff()
         {
-            /*
-            getCurrentYearFromService_fake.return_val = 2018;
+            mockTimeService
+                .Setup(service => service.GetCurrentYear())
+                .Returns(2018);
 
-            schedulerInit();
-            schedulerTurnLEDSonOnTime();
-            CHECK(!driverAreAllLEDsOn());
-            */
+            scheduler.TurnLEDSonOnTime();
+            Assert.IsFalse(driver.AreAllLEDsOn());
         }
 
+        [TestMethod]
+        public void WhenYearIs2000_LightsAreOn()
+        {
+            mockTimeService
+                .Setup(service => service.GetCurrentYear())
+                .Returns(2000);
+
+            scheduler.TurnLEDSonOnTime();
+            Assert.IsTrue(driver.AreAllLEDsOn());
+        }
+
+ 
     }
 }

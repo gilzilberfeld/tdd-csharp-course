@@ -2,6 +2,7 @@
 {
     public interface ITimeService
     {
+        void Init();
         int GetCurrentYear();
     }
 }
