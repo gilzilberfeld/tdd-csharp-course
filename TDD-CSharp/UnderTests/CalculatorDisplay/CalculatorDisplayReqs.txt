@@ -1,0 +1,8 @@
+﻿The calculator has a display area, which is updated as the keys are pressed.
+The calculator has a keypad with digits (0-9), operations (+,-,*,/), a C clear button and an ‘=‘ button to execute the calculation.
+Any other key pressed doesn’t affect the display.
+When the calculator starts it displays “0”.
+Pressing any digit, the display adds that digit to existing display. The exception is ‘0’ which is presented only if a number different than ‘0’ wasn’t already pressed.
+Pressing an operation key does not change the display.
+Pressing “C” resets the calculator.
+Pressing “=” shows the calculation result. There are no intermittent results shown until it is pressed.
