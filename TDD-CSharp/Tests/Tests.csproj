@@ -78,7 +78,7 @@
     <Compile Include="CalculatorDisplay\CalculatorDisplaysTests.cs" />
     <Compile Include="Factorial\FactorialTests.cs" />
     <Compile Include="Factorial\ParameterizedTests.cs" />
-    <Compile Include="LEDDriver\LEDDriverrMock.cs" />
+    <Compile Include="LEDDriver\LEDDriverMock.cs" />
     <Compile Include="LEDDriver\LEDDriverTests.cs" />
     <Compile Include="LEDDriver\SchedulerTests_Manual.cs" />
     <Compile Include="LEDDriver\SchedulerTests_Moq.cs" />
