@@ -1,11 +1,13 @@
-﻿namespace UnderTests
+﻿using System.Threading.Tasks;
+
+namespace UnderTests
 {
     public class Scheduler
     {
-        LEDDriver driver;
+        ILEDDriver driver;
         ITimeService timeService;
 
-        public Scheduler(ITimeService timeService, LEDDriver driver )
+        public Scheduler(ITimeService timeService, ILEDDriver driver )
         {
             this.timeService = timeService;
             timeService.Init();
@@ -31,5 +33,18 @@
                 return false;
         }
 
+        public async Task<State> InitializeNewLEDDriverAsync(ILEDDriver driver)
+        {
+            try
+            {
+                State result = await driver.InitializeAsync();
+                this.driver = driver;
+                return result;
+            }
+            catch (TimeOutException)
+            {
+                return State.TimeOut;
+            }
+        }
     }
 }

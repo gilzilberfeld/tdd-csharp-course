@@ -1,8 +1,9 @@
 ﻿using System;
+using System.Threading.Tasks;
 
 namespace UnderTests
 {
-    public class LEDDriver
+    public class LEDDriver : ILEDDriver
     {
         bool ledsAreOn = false;
         UInt16 address = 0;
@@ -23,5 +24,9 @@ namespace UnderTests
             return ledsAreOn;
         }
 
+        public async Task<State> InitializeAsync()
+        {
+            throw new NotImplementedException();
+        }
     }
 }

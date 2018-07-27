@@ -18,6 +18,7 @@ namespace TDD_CSharp.Factorial
 
         public TestContext TestContext { get; set; }
 
+ /*
         [DataTestMethod]
         [DataSource(
             "Microsoft.VisualStudio.TestTools.DataSource.CSV", 
@@ -30,5 +31,7 @@ namespace TDD_CSharp.Factorial
             int result = Convert.ToInt32(TestContext.DataRow[1]);
             Assert.AreEqual(result, Factorials.Calculate(input));
         }
+        
+*/
     }
 }

@@ -1,4 +1,5 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+using Tests;
 using UnderTests;
 
 namespace TDD_CSharp
@@ -7,7 +8,7 @@ namespace TDD_CSharp
     public class SchedulerTests_Manual
     {
         TimeServiceMock mockTimeService;
-        LEDDriver driver;
+        ILEDDriver driver;
         Scheduler scheduler;
 
         [TestInitialize]
@@ -36,5 +37,20 @@ namespace TDD_CSharp
             Assert.IsTrue(driver.AreAllLEDsOn());
         }
 
+        [TestMethod]
+        public async void WhenSchedulerInitializeLEDs_StateIsReady()
+        {
+            LEDDriverMock driver = new LEDDriverMock(true);
+            State result = await scheduler.InitializeNewLEDDriverAsync(driver);
+            Assert.AreEqual(State.Ready, result);
+        }
+
+        [TestMethod]
+        public async void WhenLEDDriverTimesOut_StateIsTimeOut()
+        {
+            LEDDriverMock driver = new LEDDriverMock(false);
+            State result = await scheduler.InitializeNewLEDDriverAsync(driver);
+            Assert.AreEqual(State.TimeOut, result);
+        }
     }
 }

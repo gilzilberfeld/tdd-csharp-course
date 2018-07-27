@@ -9,8 +9,9 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>UnderTests</RootNamespace>
     <AssemblyName>UnderTests</AssemblyName>
-    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.6.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -42,9 +43,12 @@
   <ItemGroup>
     <Compile Include="CalculatorDisplay\CalculatorDisplay.cs" />
     <Compile Include="Factorial\Factorial.cs" />
+    <Compile Include="LEDDriver\ILEDDriver.cs" />
     <Compile Include="LEDDriver\LEDDriver.cs" />
     <Compile Include="LEDDriver\ITimeService.cs" />
     <Compile Include="LEDDriver\Scheduler.cs" />
+    <Compile Include="LEDDriver\State.cs" />
+    <Compile Include="LEDDriver\TimeOutException.cs" />
     <Compile Include="LEDDriver\TimeService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
